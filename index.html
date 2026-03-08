@@ -133,7 +133,7 @@
 
 <section class="hero" id="home"><div class="container"><div class="hero-inner">
     <div class="hero-content">
-        <div class="hero-label"><span class="dot"></span> ailable for opporAvtunities</div>
+        <div class="hero-label"><span class="dot"></span> Available for opportunities</div>
         <h1>Akash Bhavsar</h1>
         <p class="hero-desc">Data Scientist building production ML systems, RAG architectures, and AI-powered products that turn complex business problems into deployed solutions.</p>
         <div class="hero-actions">
@@ -141,7 +141,7 @@
             <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
     </div>
-    <div class="hero-photo"><img src="profile.jpeg" alt="Akash Bhavsar"></div>
+    <div class="hero-photo"><img src="profile.png" alt="Akash Bhavsar"></div>
 </div></div></section>
 
 <div class="divider"></div>
@@ -267,7 +267,7 @@
         <p class="section-intro" style="margin:12px auto 0;text-align:center">Open to data science roles and interesting AI projects.</p>
     </div>
     <div class="contact-grid reveal">
-        <a href="/cdn-cgi/l/email-protection#ccada7adbfa4b4adaba58caba1ada5a0e2afa3a1" class="contact-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="__cf_email__" data-cfemail="77161c16041f0f16101e37101a161e1b5914181a">[email&#160;protected]</span></a>
+        <a id="emailLink" class="contact-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span id="emailText"></span></a>
         <a href="https://www.linkedin.com/in/akashxagi/" target="_blank" class="contact-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
         <a href="https://x.com/akashxagi" target="_blank" class="contact-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@akashxagi</a>
         <a href="https://instagram.com/akashxagi" target="_blank" class="contact-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@akashxagi</a>
@@ -277,7 +277,10 @@
 
 <footer><div class="container"><p>Designed & built by Akash Bhavsar © 2025</p></div></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+const u='akashxagi';const d='gmail.com';const e=u+String.fromCharCode(64)+d;
+document.getElementById('emailText').textContent=e;
+document.getElementById('emailLink').href='mai'+'lto:'+e;
 const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
 const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a'),navLogo=document.getElementById('navLogo');
