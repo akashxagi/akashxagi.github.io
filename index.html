@@ -66,8 +66,9 @@
         .proj:hover{border-color:var(--border-h);background:rgba(255,255,255,.04);transform:translateY(-2px)}
         .proj:hover::before{opacity:1}
         .proj.green{--proj-c:var(--green)}.proj.terra{--proj-c:var(--orange)}.proj.purple{--proj-c:var(--purple)}
-        .proj-icon{width:40px;height:40px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:18px}
-        .proj.green .proj-icon{background:rgba(48,209,88,.1)}.proj.terra .proj-icon{background:rgba(255,159,10,.1)}.proj.purple .proj-icon{background:rgba(191,90,242,.1)}
+        .proj-icon{width:40px;height:40px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+        .proj-icon svg{stroke:var(--proj-c,var(--blue))}
+        .proj.green .proj-icon{background:rgba(48,209,88,.08)}.proj.terra .proj-icon{background:rgba(255,159,10,.08)}.proj.purple .proj-icon{background:rgba(191,90,242,.08)}
         .proj-title{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:4px}
         .proj-sub{font-size:13px;color:var(--t3);margin-bottom:14px}
         .proj-desc{font-size:15px;color:var(--t2);line-height:1.6;margin-bottom:20px;max-width:680px}
@@ -112,6 +113,54 @@
             .exp-top{flex-direction:column}
             .contact-grid{flex-direction:column;align-items:center}
         }
+        /* Resume / PDF viewer */
+        .resume-wrapper{display:flex;flex-direction:column;gap:20px}
+        .resume-actions{display:flex;gap:12px;flex-wrap:wrap}
+        .pdf-viewer{width:100%;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
+        .pdf-viewer iframe{width:100%;height:75vh;border:none;display:block}
+        html.light .pdf-viewer{background:rgba(255,255,255,.7);border-color:var(--border)}
+
+        /* ===== LIGHT THEME ===== */
+        html.light{--bg:#F5F5F7;--glass:rgba(255,255,255,.75);--border:rgba(0,0,0,.08);--border-h:rgba(0,0,0,.15);--t1:#1d1d1f;--t2:rgba(29,29,31,.6);--t3:rgba(29,29,31,.35);--blue:#0071E3;--green:#34C759;--purple:#AF52DE;--orange:#FF9500;--teal:#5AC8FA}
+        html.light body{background:var(--bg);color:var(--t1)}
+        html.light ::selection{background:rgba(0,113,227,.2);color:var(--t1)}
+        html.light .orb{opacity:.06}
+        html.light body::after{opacity:0}
+        html.light nav{background:rgba(255,255,255,.75);border-color:var(--border)}
+        html.light nav a{color:var(--t2)}
+        html.light nav a:hover,html.light nav a.active{color:var(--t1);background:rgba(0,0,0,.05)}
+        html.light .hero-badge{background:rgba(0,113,227,.08);border-color:rgba(0,113,227,.15);color:var(--blue)}
+        html.light .btn-secondary{background:rgba(0,0,0,.04);border-color:var(--border);color:var(--t1)}
+        html.light .btn-secondary:hover{background:rgba(0,0,0,.08);border-color:var(--border-h)}
+        html.light .hero-photo img{border-color:rgba(255,255,255,.9);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+        html.light .exp-card,html.light .proj,html.light .skill-card,html.light .edu-item{background:rgba(255,255,255,.7);border-color:var(--border);backdrop-filter:blur(12px)}
+        html.light .exp-card:hover,html.light .proj:hover,html.light .skill-card:hover,html.light .edu-item:hover{background:rgba(255,255,255,.9);border-color:var(--border-h)}
+        html.light .exp-date{background:rgba(0,0,0,.04);color:var(--t3)}
+        html.light .exp-list li::before{background:var(--border-h)}
+        html.light .proj.green .proj-icon{background:rgba(52,199,89,.08)}.light .proj.terra .proj-icon{background:rgba(255,149,0,.08)}.light .proj.purple .proj-icon{background:rgba(175,82,222,.08)}
+        html.light .tag{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.06);color:var(--t2)}
+        html.light .skill-item{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.06);color:var(--t2)}
+        html.light .skill-item:hover{background:rgba(0,0,0,.08);color:var(--t1)}
+        html.light .contact-pill{background:rgba(255,255,255,.7);border-color:var(--border);color:var(--t1)}
+        html.light .contact-pill:hover{background:rgba(255,255,255,.95);border-color:var(--border-h)}
+        html.light .contact-pill svg{opacity:.4}
+        html.light footer{border-color:var(--border)}
+        html.light .divider{background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+        /* Toggle button */
+        .theme-toggle{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;margin-left:4px;flex-shrink:0}
+        .theme-toggle:hover{background:rgba(255,255,255,.12);border-color:var(--border-h)}
+        .theme-toggle svg{width:16px;height:16px;color:var(--t2);transition:all .3s}
+        .theme-toggle .sun{display:none}
+        .theme-toggle .moon{display:block}
+        html.light .theme-toggle{background:rgba(0,0,0,.04);border-color:var(--border)}
+        html.light .theme-toggle:hover{background:rgba(0,0,0,.08)}
+        html.light .theme-toggle svg{color:var(--t2)}
+        html.light .theme-toggle .sun{display:block}
+        html.light .theme-toggle .moon{display:none}
+
+        /* Smooth theme transition */
+        html.transitioning,html.transitioning *,html.transitioning *::before,html.transitioning *::after{transition:all .4s ease !important}
     </style>
 </head>
 <body>
@@ -121,7 +170,12 @@
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
 </nav>
 <section class="hero" id="home"><div class="container"><div class="hero-inner">
     <div class="hero-content">
@@ -148,9 +202,9 @@
 <section id="projects"><div class="container">
     <div class="reveal"><div class="section-label">Projects</div><div class="section-title">What I've built</div><p class="section-desc">Production-grade AI systems handling real users, real data, and real business impact.</p></div>
     <div class="projects-stack">
-        <div class="proj green reveal"><div class="proj-icon">⚡</div><div class="proj-title">AutoML & Intelligent Document Q&A Platform</div><div class="proj-sub">End-to-end ML automation + RAG-powered document intelligence</div><p class="proj-desc">A production-grade platform solving two critical enterprise problems: automating the full machine learning lifecycle and enabling real-time Q&A over private documents.</p><ul class="proj-points"><li>Automated ML pipeline with data cleaning, skew-aware feature engineering, auto-encoding, and multi-model training (XGBoost, Random Forest, Ridge, Logistic Regression)</li><li>Integrated Optuna Bayesian hyperparameter optimization with TPE sampling and median pruning</li><li>RAG Document Assistant with FAISS vector store, SentenceTransformer embeddings, query enhancement, and hybrid re-ranking</li><li>Concurrent LLM executor with async worker pools for cloud APIs and thread pools for local GPU inference via vLLM</li><li>SHAP-based model interpretability for transparent, explainable predictions</li><li>Modular class-based architecture with singleton model pools, Dockerized microservices, and API-first design</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Optuna</span><span class="tag">FAISS</span><span class="tag">SentenceTransformers</span><span class="tag">vLLM</span><span class="tag">Gemini API</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div></div>
-        <div class="proj terra reveal"><div class="proj-icon">🚗</div><div class="proj-title">AI Sales Assistant — Automotive Platform</div><div class="proj-sub">Production AI system for dealership customer engagement & vehicle discovery</div><p class="proj-desc">An end-to-end NLP platform deployed on AWS that automates dealership customer engagement, vehicle discovery, and trade-in workflows with semantic search and conversational AI.</p><ul class="proj-points"><li>RAG-powered semantic search using OpenAI embeddings (1536-dim) with pgvector for hybrid search with cosine similarity</li><li>GPT-4 Vision API integration for automated vehicle damage detection with coordinate-based annotation</li><li>Multi-phase conversational AI with OpenAI function calling, streaming responses, and context-aware state management across 3,000+ lines</li><li>AI-powered business analytics engine generating actionable dealership intelligence</li><li>Deployed on AWS (EC2, RDS, S3) with Nginx, SSL/TLS, Supervisor at $16–31/month</li><li>Clean modular architecture with async/await, Redis caching, webhook integrations, multi-dealer SaaS scalability</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">OpenAI GPT-4o</span><span class="tag">Embeddings</span><span class="tag">GPT-4 Vision</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Redis</span><span class="tag">AWS</span><span class="tag">Nginx</span><span class="tag">SQLAlchemy</span></div></div>
-        <div class="proj purple reveal"><div class="proj-icon">🎙️</div><div class="proj-title">AI Meeting Intelligence System</div><div class="proj-sub">Autonomous agent-driven meeting analysis & insight extraction</div><p class="proj-desc">An autonomous, agent-driven system for intelligent analysis of video interviews and meetings using GPT-4o-powered cognitive agents.</p><ul class="proj-points"><li>Modular agentic AI system for end-to-end meeting analysis with 80% accuracy in insight extraction</li><li>Self-governing AI agents for bias detection, keyword extraction, topic categorization, and automated transcription</li><li>Google Calendar integration to autonomously schedule and start meeting recordings</li><li>Automated recording processing with FFmpeg audio extraction and structured MongoDB storage</li><li>Secure authentication for Google Drive and Calendar API interactions</li><li>Personalized report generation with automated uploads and email notifications, saving 30+ minutes per meeting</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">AssemblyAI</span><span class="tag">GPT-4o</span><span class="tag">MongoDB</span><span class="tag">Google Calendar API</span><span class="tag">Google Drive API</span><span class="tag">FFmpeg</span><span class="tag">Selenium</span></div></div>
+        <div class="proj green reveal"><div class="proj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="proj-title">AutoML & Intelligent Document Q&A Platform</div><div class="proj-sub">End-to-end ML automation + RAG-powered document intelligence</div><p class="proj-desc">A production-grade platform solving two critical enterprise problems: automating the full machine learning lifecycle and enabling real-time Q&A over private documents.</p><ul class="proj-points"><li>Automated ML pipeline with data cleaning, skew-aware feature engineering, auto-encoding, and multi-model training (XGBoost, Random Forest, Ridge, Logistic Regression)</li><li>Integrated Optuna Bayesian hyperparameter optimization with TPE sampling and median pruning</li><li>RAG Document Assistant with FAISS vector store, SentenceTransformer embeddings, query enhancement, and hybrid re-ranking</li><li>Concurrent LLM executor with async worker pools for cloud APIs and thread pools for local GPU inference via vLLM</li><li>SHAP-based model interpretability for transparent, explainable predictions</li><li>Modular class-based architecture with singleton model pools, Dockerized microservices, and API-first design</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Optuna</span><span class="tag">FAISS</span><span class="tag">SentenceTransformers</span><span class="tag">vLLM</span><span class="tag">Gemini API</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div></div>
+        <div class="proj terra reveal"><div class="proj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="proj-title">AI Sales Assistant — Automotive Platform</div><div class="proj-sub">Production AI system for dealership customer engagement & vehicle discovery</div><p class="proj-desc">An end-to-end NLP platform deployed on AWS that automates dealership customer engagement, vehicle discovery, and trade-in workflows with semantic search and conversational AI.</p><ul class="proj-points"><li>RAG-powered semantic search using OpenAI embeddings (1536-dim) with pgvector for hybrid search with cosine similarity</li><li>GPT-4 Vision API integration for automated vehicle damage detection with coordinate-based annotation</li><li>Multi-phase conversational AI with OpenAI function calling, streaming responses, and context-aware state management across 3,000+ lines</li><li>AI-powered business analytics engine generating actionable dealership intelligence</li><li>Deployed on AWS (EC2, RDS, S3) with Nginx, SSL/TLS, Supervisor at $16–31/month</li><li>Clean modular architecture with async/await, Redis caching, webhook integrations, multi-dealer SaaS scalability</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">OpenAI GPT-4o</span><span class="tag">Embeddings</span><span class="tag">GPT-4 Vision</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Redis</span><span class="tag">AWS</span><span class="tag">Nginx</span><span class="tag">SQLAlchemy</span></div></div>
+        <div class="proj purple reveal"><div class="proj-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="proj-title">AI Meeting Intelligence System</div><div class="proj-sub">Autonomous agent-driven meeting analysis & insight extraction</div><p class="proj-desc">An autonomous, agent-driven system for intelligent analysis of video interviews and meetings using GPT-4o-powered cognitive agents.</p><ul class="proj-points"><li>Modular agentic AI system for end-to-end meeting analysis with 80% accuracy in insight extraction</li><li>Self-governing AI agents for bias detection, keyword extraction, topic categorization, and automated transcription</li><li>Google Calendar integration to autonomously schedule and start meeting recordings</li><li>Automated recording processing with FFmpeg audio extraction and structured MongoDB storage</li><li>Secure authentication for Google Drive and Calendar API interactions</li><li>Personalized report generation with automated uploads and email notifications, saving 30+ minutes per meeting</li></ul><div class="proj-stack"><span class="tag">Python</span><span class="tag">AssemblyAI</span><span class="tag">GPT-4o</span><span class="tag">MongoDB</span><span class="tag">Google Calendar API</span><span class="tag">Google Drive API</span><span class="tag">FFmpeg</span><span class="tag">Selenium</span></div></div>
     </div>
 </div></section>
 <div class="divider"></div>
@@ -173,6 +227,25 @@
     </div>
 </div></section>
 <div class="divider"></div>
+<section id="resume"><div class="container">
+    <div class="reveal"><div class="section-label">Resume</div><div class="section-title">My resume</div><p class="section-desc">View or download my full resume below.</p></div>
+    <div class="resume-wrapper reveal">
+        <div class="resume-actions">
+            <a href="resume.pdf" download class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+            </a>
+            <a href="resume.pdf" target="_blank" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in New Tab
+            </a>
+        </div>
+        <div class="pdf-viewer">
+            <iframe src="resume.pdf" title="Resume"></iframe>
+        </div>
+    </div>
+</div></section>
+<div class="divider"></div>
 <section class="contact-section" id="contact"><div class="container">
     <div class="reveal"><div class="section-label">Contact</div><div class="section-title">Let's connect</div><p class="section-desc" style="margin:12px auto 0;text-align:center">Open to data science roles and interesting AI projects.</p></div>
     <div class="contact-grid reveal">
@@ -190,6 +263,10 @@ const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.ta
 const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('nav a:not(.nav-logo)'),navLogo=document.getElementById('navLogo');
 window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.id});navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c));navLogo.classList.toggle('scrolled',scrollY>80)});
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})}));
+/* Theme toggle */
+const toggle=document.getElementById('themeToggle');const html=document.documentElement;
+const saved=localStorage.getItem('theme');if(saved==='light')html.classList.add('light');
+toggle.addEventListener('click',()=>{html.classList.add('transitioning');html.classList.toggle('light');localStorage.setItem('theme',html.classList.contains('light')?'light':'dark');setTimeout(()=>html.classList.remove('transitioning'),400)});
 </script>
 </body>
 </html>
